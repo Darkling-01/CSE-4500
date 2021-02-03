@@ -2,18 +2,15 @@ var http = require("http");
 
 const fetch = require("node-fetch");
 
-//http.createServer(function (request, response) {
-   // Send the HTTP header 
-   // HTTP Status: 200 : OK
-   // Content Type: text/plain
-   //response.writeHead(200, {'Content-Type': 'text/plain'});
 
    fetch('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+  
+   //json() - parses the response body into a JSON object.
+
       .then(res => res.json())
       .then(json => console.log(json));
-      
-  //response.end(url);
-//}).listen(8081);
 
-// Console will print the message
-//console.log('Server running at http://127.0.0.1:8081/');
+/*The Fetch API returns a response stream in the promise. The response stream is not JSON, 
+so trying to call JSON.parse on it will fail. To correctly parse a JSON response, 
+you'll need to use the response.json function. 
+*/
