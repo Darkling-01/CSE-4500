@@ -9,5 +9,15 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Levels");
     }
-    
+
+    public void StageOne()
+    {
+        SceneManager.LoadScene("Stage1");
+    }
+
+    public void mainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }
