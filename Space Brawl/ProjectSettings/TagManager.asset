@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - CoverPage
+  - Buttons
   - 
   - 
   - 
@@ -40,4 +40,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: CoverPage
+    uniqueID: 1379369445
+    locked: 0
+  - name: Buttons
+    uniqueID: 3584429763
     locked: 0
