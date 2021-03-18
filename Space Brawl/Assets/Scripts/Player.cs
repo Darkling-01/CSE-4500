@@ -39,6 +39,19 @@ public class Player : MonoBehaviour
             anim.SetBool("IsRunning", false); //character will Run
         }
 
+
+        //Setting the rotation values of an object (player)
+        if (input > 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else if (input < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+
+
+
     }
 
 
