@@ -423,7 +423,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  health: 100
 --- !u!1 &1982388609
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +554,11 @@ PrefabInstance:
     - target: {fileID: 7257901020333025249, guid: 5105c8c4153fc46539441c531e662cc6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257901020333025253, guid: 5105c8c4153fc46539441c531e662cc6,
+        type: 3}
+      propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

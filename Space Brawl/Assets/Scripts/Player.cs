@@ -10,9 +10,6 @@ public class Player : MonoBehaviour
     private float input; //we ertreive information from keys press.
 
 
-    public int health;  //we can assign the health of the character in unitys
-
-
 
     Rigidbody2D rb;
     Animator anim;
@@ -24,7 +21,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
     }
-
+    
     // Update is called once per frame
     private void Update()
     {
@@ -39,14 +36,16 @@ public class Player : MonoBehaviour
             anim.SetBool("IsRunning", false); //character will Run
         }
 
-
+        
         //Setting the rotation values of an object (player)
         if (input > 0)
         {
+            //To make sure the object has zero rotation
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
         else if (input < 0)
         {
+            //If input is less than zero then it is running to the left
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
@@ -54,10 +53,10 @@ public class Player : MonoBehaviour
 
     }
 
-
     void FixedUpdate()
     {
-        input = Input.GetAxisRaw("Horizontal");
+        //stores a number from -1 to 1 depending on the arrow keys the person presses
+        input = Input.GetAxisRaw("Horizontal"); 
 
         //moving player
         rb.velocity = new Vector2(input * speed, rb.velocity.y);
