@@ -9,8 +9,10 @@ public class Player : MonoBehaviour
     public float speed;   //how fast the character can move
     private float input; //we ertreive information from keys press.
 
-
-
+    public float startDashTime;
+    private float dashTime;
+    public float extraSpeed;
+    private bool isDashing;
     Rigidbody2D rb;
     Animator anim;
 
@@ -49,7 +51,22 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
+        if (Input.GetKeyDown(KeyCode.Space) && isDashing == false)
+        {
+            speed += extraSpeed;
+            isDashing = true;
+            dashTime = startDashTime;
+        }
 
+        if (dashTime <= 0 && isDashing == true)
+        {
+            isDashing = false;
+            speed -= extraSpeed;
+        }
+        else
+        {
+            dashTime -= Time.deltaTime;
+        }
 
     }
 

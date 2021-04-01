@@ -455,6 +455,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
+  startDashTime: 0.1
+  extraSpeed: 34
 --- !u!1 &1982388609
 GameObject:
   m_ObjectHideFlags: 0
