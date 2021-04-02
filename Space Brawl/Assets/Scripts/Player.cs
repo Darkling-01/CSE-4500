@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Rigidbody))]
+
 public class Player : MonoBehaviour
 {
 
     public float speed;   //how fast the character can move
-    private float input; //we ertreive information from keys press.
+    private float input; //we retreive information from keys press.
+    public float jumpForce;
 
-    public float startDashTime;
-    private float dashTime;
-    public float extraSpeed;
-    private bool isDashing;
     Rigidbody2D rb;
     Animator anim;
 
@@ -21,12 +20,20 @@ public class Player : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-
     }
-    
+
+
+
     // Update is called once per frame
     private void Update()
     {
+        //isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
+
+        if(Input.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f)
+        {
+            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        }
+
         //Inside Unity we assign parameters in our animator.. If 'true' then the character will be in Idle; however, else (if) false
         //then the character 'Run'
         if (input != 0)
@@ -50,33 +57,16 @@ public class Player : MonoBehaviour
             //If input is less than zero then it is running to the left
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
-
-        if (Input.GetKeyDown(KeyCode.Space) && isDashing == false)
-        {
-            speed += extraSpeed;
-            isDashing = true;
-            dashTime = startDashTime;
-        }
-
-        if (dashTime <= 0 && isDashing == true)
-        {
-            isDashing = false;
-            speed -= extraSpeed;
-        }
-        else
-        {
-            dashTime -= Time.deltaTime;
-        }
-
     }
 
     void FixedUpdate()
     {
         //stores a number from -1 to 1 depending on the arrow keys the person presses
-        input = Input.GetAxisRaw("Horizontal"); 
+        input = Input.GetAxisRaw("Horizontal");
 
         //moving player
         rb.velocity = new Vector2(input * speed, rb.velocity.y);
     }
+
 
 }
