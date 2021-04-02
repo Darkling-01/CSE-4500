@@ -44,7 +44,15 @@ public class Player : MonoBehaviour
         {
             anim.SetBool("IsRunning", false); //character will Run
         }
-
+        
+        if (input != 0)
+        {
+            anim.SetBool("IsJumping", true);
+        }
+        else
+        {
+            anim.SetBool("IsJumping", false);
+        }
         
         //Setting the rotation values of an object (player)
         if (input > 0)
