@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
 
         if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
         {
-            anim.SetTrigger("Jumping with Gun");
+            //anim.SetTrigger("Jumping with Gun");
             isJumping = true;
             jumpTimerCounter = jumptime;
             rb.velocity = Vector2.up * jumpForce;
